@@ -1,0 +1,89 @@
+.header{
+    padding-top: 60px;
+    @include xxs{
+        padding-top: 34px;
+    }
+    &__wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        @include sm{
+            justify-content: center;
+            gap: 16px;
+        }
+    }
+    &__logos{
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+        height: 87px;
+        @include xs{
+            height: 57px;
+        }
+        @include xxs{
+            gap: 20px;
+        }
+
+    }
+    &__logo{
+        max-height: 63px;
+        @include xs{
+            height: 39px;
+        }
+    }
+    &__logos-line{
+        width: 0.78px;
+        height: 100%;
+        background-color: $main-color;
+    }
+    &__partners{
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+        @include xs{
+            position: relative;
+            flex-direction: column;
+            gap: 0;
+            
+        }
+    }
+    &__partner{
+        @include xs{
+            position: absolute;
+            left: 0;
+            bottom: -22px;
+        }
+    }
+    &__partner-text{
+        font-size: 18px;
+        color: rgba(255, 255, 255, .5);
+        font-family: $astra, sans-serif;
+        @include xs{
+            font-size: 8px;
+            line-height: 10px;
+            
+        }
+    }
+    &__social{
+        height: 34px;
+        display: flex;
+        gap: 60px;
+        align-items: center;
+        justify-content: center;
+        @include xs{
+            height: 20px;
+            gap: 45px;
+        }
+    }
+    &__social-link{
+        height: 100%;
+    }
+    &__social-icon{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
+}

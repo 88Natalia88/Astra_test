@@ -1,12 +1,20 @@
 @font-face{
-    font-family: 'Lato-Hairline';
+    font-family: 'NunitoSans-Bold';
     font-display: swap;
-    src: url('../fonts/Lato-Hairline.woff') format('woff'), url('../fonts/Lato-Hairline.woff2') format('woff2');
+    src: url('../fonts/NunitoSans-Bold.woff') format('woff'), url('../fonts/NunitoSans-Bold.woff2') format('woff2');
 }
 
 
+@font-face{
+    font-family: 'NunitoSans-Regular';
+    font-display: swap;
+    src: url('../fonts/NunitoSans-Regular.woff') format('woff'), url('../fonts/NunitoSans-Regular.woff2') format('woff2');
+}
 
 
-
-
+@font-face{
+    font-family: 'PT-Astra-Sans_Regular';
+    font-display: swap;
+    src: url('../fonts/PT-Astra-Sans_Regular.woff') format('woff'), url('../fonts/PT-Astra-Sans_Regular.woff2') format('woff2');
+}
 
