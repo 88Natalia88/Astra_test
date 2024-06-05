@@ -1,0 +1,66 @@
+.footer{
+    padding: 99px 0 176px 0;
+    @include sm{
+        padding: 80px 0 0 0;
+    }
+    &__wrap{
+        padding: 40px 40px 40px 80px;
+        height: 228px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include sm{
+            padding: 32px 20px 20px 20px;
+            flex-direction: column;
+            height: fit-content;
+            text-align: center;
+        }
+    }
+    &__title{
+        font-size: 28px;
+        font-family: $bold, sans-serif;
+        line-height: 36px;
+        @include sm{
+            font-size: 22px;
+            line-height: 30px;
+        }
+    }
+    &__contacts{
+        display: flex;
+        gap: 29px;
+        @include sm{
+            flex-direction: column;
+            margin-top: 70px;
+        }
+    }
+    &__contact{
+        display: flex;
+        flex-direction: column;
+    }
+    &__contacts-name{
+        font-family: $astra-bold, sans-serif;
+        font-size: 22px;
+    }
+    &__contacts-post{
+        margin-top: 16px;
+        font-family: $astra, sans-serif;
+    }
+    &__tel{
+        font-family: $astra, sans-serif;
+        font-size: 22px;
+        color: $main-color;
+        align-self: self-end;
+        @include sm{
+            align-self: center;
+        }
+    }
+    &__link{
+        margin-top: 20px;
+        font-size: 18px;
+        color: #0FBCFF;
+        font-family: $astra, sans-serif;
+        @include sm{
+            align-self: center;
+        }
+    }
+}

@@ -145,3 +145,22 @@ a{
         padding-top: 80px;
     }
 }
+
+.block{
+    background: linear-gradient(110.53deg, rgba(70, 73, 135, 0.5) 0.56%, rgba(39, 48, 97, 0.5) 98.22%);
+    border: 2px solid;
+    border-image: linear-gradient(110.53deg, rgba(70, 73, 135, 0.5) 0.56%, rgba(39, 48, 97, 0.5) 98.22%);
+    border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+    box-shadow: 0px 4px 80px 0px #00000033;
+}
+
+.social-icon{
+    fill: rgba(255, 255, 255, .1);
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+}
