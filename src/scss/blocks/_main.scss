@@ -113,6 +113,24 @@
     }
 }
 .program{
+    position: relative;
+    &__bg{
+        display: none;
+        @include xxs{
+            display: block;
+            position: absolute;
+            top: -80px;
+            right: 0;
+            z-index: -1;
+            max-width: 100%;
+            max-height: 800px;
+        }
+    }
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     &__wrap{
         display: flex;
         flex-direction: column;
@@ -264,10 +282,15 @@
         font-size: 16px;
         color: #8F95A8;
     }
+    &__btn{
+        text-align: center;
+        @include xs{
+            margin: 0 20px;
+        }
+    }
     &__button{
         margin-top: 60px;
         width: 590px;
-        align-self: center;
         @include xs{
             width: 100%;
         }
@@ -318,6 +341,9 @@
 }
 .benefit{
     margin-top: 180px;
+    @include sm{
+        margin-top: 80px;
+    }
     &__wrap{
         margin-top: 60px;
         display: flex;
@@ -334,17 +360,26 @@
         @include sm{
             text-align: center;
             max-width: 100%;
+            padding: 40px 20px 60px 20px;
         }
     }
     &__item-title{
         font-size: 30px;
         font-family: $bold, sans-serif;
         line-height: 56px;
+        @include sm{
+            font-size: 24px;
+            line-height: 32px;
+        }
     }
     &__item-text{
         margin-top: 20px;
         font-size: 24px;
         line-height: 32px;
+        @include sm{
+            font-size: 18px;
+            line-height: 20px;
+        }
     }
 }
 .registration{
@@ -402,6 +437,9 @@
         display: flex;
         gap: 60px;
         align-items: center;
+        &:last-child .contacts__icon{
+            fill: rgba(255, 255, 255, .4);
+        }
         @include sm{
             justify-content: space-between;
         }
@@ -418,4 +456,5 @@
         font-size: 28px;
         color: $main-color;
     }
+    
 }
