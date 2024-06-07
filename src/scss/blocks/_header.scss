@@ -1,5 +1,6 @@
 .header{
     padding-top: 60px;
+    
     @include xxs{
         padding-top: 34px;
     }
@@ -9,15 +10,24 @@
         top: -60%;
         left: -30%;
         z-index: -1;
+        @include xs{
+            width: 600px;
+            height: 600px;
+            left: -35%;
+            right: 0;
+            top: -20%;
+        }
     }
     &__wrap{
+        position: relative;
+        z-index: 10;
         display: flex;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
         @include sm{
+            //flex-direction: column;
             justify-content: center;
-            gap: 16px;
         }
     }
     &__logos{
@@ -33,12 +43,6 @@
             gap: 20px;
         }
 
-    }
-    &__logo{
-        max-height: 63px;
-        @include xs{
-            height: 39px;
-        }
     }
     &__logos-line{
         width: 0.78px;
@@ -81,13 +85,46 @@
         align-items: center;
         justify-content: center;
         @include xs{
+            margin-top: 16px;
             height: 20px;
             gap: 45px;
         }
         
     }
+    &__logo-link{
+        &_ocs{
+            width: 150px;
+            height: 62px;
+        }
+        &_astra{
+            height: 48px;
+            width: 180px;
+        }
+        @include xs{
+            &_astra{
+                height: 30px;
+                width: 108px;
+            }
+            &_ocs{
+                width: 94px;
+                height: 39px;
+            }
+        }
+    }
+    &__logo{
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+    }
     &__social-link{
         height: 100%;
+        @include xs{
+            width: 92px;
+            &:first-child{
+                margin-left: 14px;
+            }
+        }
+
     }
     &__social-icon{
         width: 100%;

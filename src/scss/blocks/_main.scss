@@ -1,6 +1,7 @@
 .promo{
     position: relative;
     padding: 148px 0 107px 0;
+
     @include xs{
         padding-top: 337px;
         padding-bottom: 0;
@@ -8,26 +9,36 @@
     &__glow{
         width: 1700px;
         height: 1700px;
-        z-index: -1;
+        z-index: -10;
         right: -25%;
         top: -70%;
+        @include xs{
+            width: 600px;
+            height: 600px;
+            top: -25%;
+        }
         &_2{
-            left: 10%;
+            left: 15%;
             bottom: -55%;
             top: 0;
             right: 0;
+            @include xs{
+                display: none;
+            }
         }
     }
     &__title{
         width: 100%;
         max-width: 1020px;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
     }
     &__logo{
         width: 100%;
         height: 100%;
         object-fit: fill;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
     }
     &__subtitle{
         margin-top: 80px;
@@ -36,7 +47,8 @@
         width: 100%;
         max-width: 835px;
         line-height: 40px;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
         @include xs{
             font-size: 18px;
             text-align: center;
@@ -48,7 +60,8 @@
         font-family: $astra, sans-serif;
         font-size: 24px;
         color: $light-color;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
         @include xs{
             font-size: 16px;
             text-align: center;
@@ -56,21 +69,24 @@
     }
     &__button{
         margin-top: 80px;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
         @include xs{
             margin-top: 40px;
         }
     }
     &__btn{
         width: 400px;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
         @include xs{
             width: 100%;
         }
     }
     &__button-remark{
         margin-top: 20px;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
         @include xs{
             margin-top: 16px;
         }
@@ -79,21 +95,20 @@
         font-size: 14px;
         font-family: $astra, sans-serif;
         color: #8F95A8;
-        z-index: 2;
+        z-index: 12;
+        position: relative;
         @include xs{
             font-size: 12px;
             text-align: center;
         }
     }
     &__bg{
-        //width: 100%;
-        //height: 100%;
         max-width: 1268px;
         max-height: 1344px;
         position: absolute;
         top: -25%;
         right: 0;
-        z-index: 1;
+        z-index: 2;
         @include xs{
             top: -30%;
         }
@@ -111,7 +126,20 @@
     background-color: #0D0E0F;
     padding: 200px 0;
     @include xs{
-        padding-top: 80px 0;
+        padding: 80px 0;
+    }
+    &__glow{
+        width: 2765px;
+        height: 2765px;
+        z-index: 1;
+        right: -50%;
+        top: 0;
+        @include xs{
+            width: 900px;
+            height: 900px;
+            top: 20%;
+            right: -70%;
+        }
     }
     &__wrap{
         margin-left: 80px;
@@ -140,9 +168,23 @@
 }
 .program{
     position: relative;
+    z-index: 12;
     .container{
         @include xxs{
             padding: 0;
+        }
+    }
+    &__glow{
+        width: 3000px;
+        height: 3000px;
+        z-index: -3;
+        top: -35%;
+        left: -70%;
+        @include xs{
+            width: 1000px;
+            height: 1000px;
+            top: 15%;
+            left: 10%;
         }
     }
     &__bg{
@@ -150,7 +192,7 @@
         @include xxs{
             display: block;
             position: absolute;
-            top: -80px;
+            top: -7%;
             right: 0;
             z-index: -1;
             max-width: 100%;
@@ -384,13 +426,37 @@
 }
 .benefit{
     margin-top: 180px;
+    position: relative;
     @include sm{
         margin-top: 80px;
+    }
+    &__glow{
+        width: 2500px;
+        height: 2500px;
+        z-index: -1;
+        top: -200%;
+        right: -40%;
+        @include xs{
+            display: none;
+        }
+    }
+    &__glow-orange{
+        display: none;
+        @include xxs{
+            display: block;
+            width: 1000px;
+            height: 1000px;
+            z-index: -1;
+            top: -50%;
+            left: 10%;
+        }
     }
     &__wrap{
         margin-top: 60px;
         display: flex;
         gap: 18px;
+        z-index: 12;
+        position: relative;
         @include sm{
             margin-top: 30px;
             flex-direction: column;
@@ -426,9 +492,28 @@
     }
 }
 .registration{
+    position: relative;
     padding-top: 194px;
+
+    
     @include sm{
         padding-top: 80px;
+    }
+    &__glow{
+        width: 80vw;
+        height: 80vh;
+        max-width: 2000px;
+        max-height: 2000px;
+        z-index: -2;
+        left: -15%;
+        top: -25%;
+        @include xs{
+            width: 50vw;
+            height: 50vh;
+            left: 0;
+            right: 0;
+            top: 10px;
+        }
     }
     &__wrap{
         display: flex;
