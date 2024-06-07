@@ -4,6 +4,11 @@
     @include sm{
         padding: 80px 0 0 0;
     }
+    .container{
+        @include xxs{
+            padding: 0;
+        }
+    }
     &__bg{
         position: absolute;
         left: 0;
@@ -11,6 +16,9 @@
         z-index: -1;
         max-width: 100%;
         max-height: 1620px;
+        @include xxs{
+            bottom: 35%;
+        }
     }
     &__img{
         width: 100%;

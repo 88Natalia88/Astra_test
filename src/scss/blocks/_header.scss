@@ -3,6 +3,13 @@
     @include xxs{
         padding-top: 34px;
     }
+    &__glow{
+        width: 1500px;
+        height: 1500px;
+        top: -60%;
+        left: -30%;
+        z-index: -1;
+    }
     &__wrap{
         display: flex;
         justify-content: space-between;

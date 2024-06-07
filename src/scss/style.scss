@@ -95,14 +95,6 @@ a{
     max-width: 1610px;
     margin: 0 auto;
     padding: 0 20px;
-    /*@include xs {
-        max-width: 744px;
-        padding: 0 10px;
-    }
-    @include xxs {
-        max-width: 330px;
-        padding: 0 5px;
-    }*/
 }
 
 .section-title{
@@ -139,13 +131,6 @@ a{
     }
 }
 
-.pt-200{
-    padding-top: 200px;
-    @include xs{
-        padding-top: 80px;
-    }
-}
-
 .block{
     background: linear-gradient(110.53deg, rgba(70, 73, 135, 0.5) 0.56%, rgba(39, 48, 97, 0.5) 98.22%);
     //background-color: rgba(78, 78, 128, 0.3);
@@ -166,4 +151,17 @@ a{
     height: 100%;
     width: 100%;
     object-fit: fill;
+}
+
+.glow-blue{
+    position: absolute;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(92, 135, 251, 0.46) 0%, rgba(41, 44, 52, 0) 100%);
+}
+.glow-lightBlue{
+    position: absolute;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 54, 248, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
+}
+.glow-orange{
+    position: absolute;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(248, 59, 0, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
 }
