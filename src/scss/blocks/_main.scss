@@ -2,7 +2,7 @@
 .promo{
     position: relative;
     padding: 148px 0 107px 0;
-
+    overflow-x: hidden;
     @include xs{
         padding-top: 337px;
         padding-bottom: 0;
