@@ -4,7 +4,7 @@
     @include xxs{
         padding-top: 34px;
     }
-    &::before{
+    /*&::before{
         position: absolute;
         content: "";
         background: radial-gradient(50% 50% at 50% 50%, rgba(92, 135, 251, 0.46) 0%, rgba(41, 44, 52, 0) 100%);
@@ -23,24 +23,20 @@
             max-width: 300px;
             max-height: 300px;
         }
-    }
-    /*&__glow{
+    }*/
+    &__glow{
         width: 50vw;
-        height: 50vh;
+        height: 50vw;
         max-width: 1500px;
         max-height: 1500px;
-        top: -25%;
-        left: -25%;
-        z-index: -1;
-        @include sm{
-            max-width: 600px;
-            max-height: 600px;
-        }
-        @include xs{
-            max-width: 300px;
-            max-height: 300px;
-        }
-    }*/
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -55%);
+        -webkit-transform: translate(-50%, -55%);
+        -moz-transform: translate(-50%, -55%);
+        -ms-transform: translate(-50%, -55%);
+        -o-transform: translate(-50%, -55%);
+    }
     &__wrap{
         position: relative;
         z-index: 10;

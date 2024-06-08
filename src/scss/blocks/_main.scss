@@ -7,63 +7,34 @@
         padding-top: 337px;
         padding-bottom: 0;
     }
-    &::before{
-        content: "";
-        position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(248, 59, 0, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
+    &__glow-wrap{
+        overflow: hidden;
         width: 50vw;
-        height: 50vh;
+        height: 50vw;
         max-width: 1700px;
         max-height: 1700px;
-        z-index: -10;
-        right: -20%;
+        position: absolute;
+        right: 0;
         top: 0;
-        @include xs{
-            max-width: 600px;
-            max-height: 600px;
-            top: -15%;
-            right: 0;
-        }
-    }
-    &::after{
-        content: "";
-        position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(248, 59, 0, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
-        width: 50vw;
-        height: 50vh;
-        max-width: 1700px;
-        max-height: 1700px;
-        z-index: -10;
-        left: 30%;
-        bottom: -35%;
-        @include xs{
-            display: none;
-        }
-    }
-    /*&__glow{
-        width: 50vw;
-        height: 50vh;
-        max-width: 1700px;
-        max-height: 1700px;
-        z-index: -10;
-        right: -20%;
-        top: -20%;
-        @include xs{
-            max-width: 600px;
-            max-height: 600px;
-            top: -35%;
-            right: -90px;
-        }
         &_2{
-            left: 40%;
+            left: 12%;
             bottom: 0;
-            top: 35%;
-            right: 0;
             @include xs{
                 display: none;
             }
         }
-    }*/
+    }
+    &__glow{
+        width: 70%;
+        height: 70%;
+        z-index: -10;
+        top: -5%;
+        right: -15%;
+        &_2{
+            width: 100%;
+            top: 35%;
+        }
+    }
     &__title{
         width: 100%;
         max-width: 1020px;
@@ -167,43 +138,33 @@
     @include xs{
         padding: 80px 0;
     }
-    &::before{
-        content: "";
+    &__glow-wrap{
         position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 54, 248, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
-        width: 100vw;
-        height: 100vh;
-        max-width: 2765px;
-        max-height: 2765px;
-        z-index: 1;
-        right: -55%;
+        overflow: hidden;
+        width: 80vw;
+        height: 80vw;
+        max-width: 1765px;
+        max-height: 1765px;
         top: 0;
+        right: 0;
         @include xs{
-            max-width: 300px;
-            max-height: 600px;
-            //right: -40%;
-            right: 0;
+            top: -75%;
+        }
+        @include xs{
             top: -100%;
         }
     }
-    /*&__glow{
+    &__glow{
+        right: -50%;
         width: 100%;
         height: 100%;
-        max-width: 2765px;
-        max-height: 2765px;
-        z-index: 1;
-        right: -40%;
-        top: 40%;
         @include xs{
-            width: 900px;
-            height: 900px;
-            top: 0;
-            right: -25%;
+            right: -30%;
         }
     }
     &__glow.glow-lightBlue{
         z-index: 1;
-    }*/
+    }
     &__wrap{
         margin-left: 80px;
         @include sm{
@@ -237,39 +198,32 @@
             padding: 0;
         }
     }
-    &::before{
-        content: "";
+    &__glow-wrap{
         position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 54, 248, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
-        width: 100%;
-        height: 100%;
+        overflow: hidden;
+        width: 70vw;
+        height: 70vw;
         max-width: 3000px;
         max-height: 3000px;
-        z-index: -3;
-        top: -5%;
-        left: -60%;
+        top: 0;
+        left: 0;
+        @include sm{
+            left: 28%;
+            top: 20%;
+        }
         @include xs{
-            max-width: 200px;
-            max-height: 1000px;
-            top: 10%;
-            left: 45%;
+            top: 30%;
         }
     }
-    /*&__glow{
+    &__glow{
         width: 100%;
         height: 100%;
-        max-width: 3000px;
-        max-height: 3000px;
         z-index: -3;
-        top: -5%;
         left: -60%;
-        @include xs{
-            width: 1000px;
-            height: 1000px;
-            top: -20%;
-            left: 35%;
+        @include sm{
+            left: 40%;
         }
-    }*/
+    }
     &__bg{
         display: none;
         @include xxs{
@@ -302,7 +256,6 @@
     &__wrap{
         display: flex;
         flex-direction: column;
-        //padding: 80px;
         padding: 80px 0;
         width: 100%;
         
@@ -465,6 +418,7 @@
     }
 }
 .invite{
+    position: relative;
     margin-top: 180px;
     @include sm{
         margin-top: 100px;
@@ -472,6 +426,21 @@
     @include xs{
         display: none;
     }
+    &__glow-wrap{
+        position: absolute;
+        overflow: hidden;
+        width: 80vw;
+        height: 80vw;
+        max-width: 2500px;
+        max-height: 2500px;
+        top: -55%;
+        right: 0;
+    }
+    &__glow{
+        width: 100%;
+        height: 100%;
+        right: -50%;
+}
     &__wrap{
         padding: 40px 60px 60px 60px;
         display: flex;
@@ -513,63 +482,24 @@
     @include sm{
         margin-top: 80px;
     }
-    &::before{
-        content: "";
+    &__glow-wrap{
         position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(0, 54, 248, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
-        width: 100vw;
-        height: 100vh;
-        max-width: 2500px;
-        max-height: 2500px;
-        z-index: -3;
-        top: -100%;
-        right: -60%;
-        @include xs{
-            display: none;
-        }
-    }
-    &::after{
-        content: "";
-        position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(248, 59, 0, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
+        overflow: hidden;
         display: none;
         @include xxs{
             display: block;
-            width: 50vw;
-            height: 50vh;
-            max-width: 300px;
-            max-height: 1000px;
-            z-index: -1;
-            top: -30%;
-            left: 25%;
-        }
-    }
-    /*&__glow{
-        width: 100%;
-        height: 100%;
-        min-width: 2500px;
-        min-height: 2500px;
-        z-index: -1;
-        top: -200%;
-        top: 0;
-        right: -40%;
-        @include xs{
-            display: none;
-        }
-    }
-    &__glow-orange{
-        display: none;
-        @include xxs{
-            display: block;
-            width: 100%;
-            height: 100%;
+            width: 70vw;
+            height: 70vw;
             max-width: 1000px;
             max-height: 1000px;
-            z-index: -1;
-            top: -50%;
-            left: 10%;
+            top: -25%;
+            right: 0;
         }
-    }*/
+    }
+    &__glow{
+        width: 100%;
+        height: 100%;
+    }
     &__title{
         position: relative;
         z-index: 12;
@@ -617,45 +547,32 @@
 .registration{
     position: relative;
     padding-top: 194px;
-
-    &::before{
-        content: "";
-        position: absolute;
-        background: radial-gradient(50% 50% at 50% 50%, rgba(248, 59, 0, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
-        width: 50vw;
-        height: 50vh;
-        max-width: 2500px;
-        max-height: 2500px;
-        z-index: -2;
-        left: 0;
-        top: 0;
-        @include xs{
-            //width: 50vw;
-            //height: 50vh;
-            max-width: 300px;
-            max-height: 300px;
-            top: 120%;
-        }
-    }
     @include sm{
         padding-top: 80px;
     }
-    &__glow{
-        width: 50vw;
-        height: 50vh;
+    &__glow-wrap{
+        position: absolute;
+        overflow: hidden;
+        width: 70vw;
+        height: 70vh;
         max-width: 2500px;
         max-height: 2500px;
-        z-index: -2;
         left: 0;
         top: 0;
+        @include sm{
+            top: 150%;
+        }
         @include xs{
-            //width: 50vw;
-            //height: 50vh;
-            left: 0;
-            right: 0;
-            top: 10px;
+            width: 50vw;
+            height: 50vh;
+            top: 95%;
         }
     }
+    &__glow{
+        z-index: -2;
+        width: 100%;
+        height: 100%;
+}
     &__wrap{
         display: flex;
         flex-direction: column;
@@ -726,4 +643,164 @@
         color: $main-color;
     }
     
+}
+.modal{
+    overflow: scroll;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 15;
+    display: none;
+    &__popup{
+        background-color: #24272E;
+        width: 100%;
+        max-width: 480px;
+        margin: 2% auto;
+        padding: 40px;
+        border-radius: 16px;
+        border: 1px solid #227AFF;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        -ms-border-radius: 16px;
+        -o-border-radius: 16px;
+        position: relative;
+        z-index: 20;
+        overflow: hidden;
+}
+    &__popup-title{
+        font-size: 24px;
+        font-family: $bold, sans-serif;
+    }
+    &__popup-progress{
+        margin-top: 32px;
+        display: flex;
+        gap: 4px;
+    }
+    &__popup-span{
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+        background-color: rgba(229, 231, 237, .2);
+    }
+    &__form{
+        margin-top: 24px;
+    }
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 35px;
+    
+    @include xxs{
+        row-gap: 20px;
+    }
+    &__custom-input{
+        position: relative;
+        width: 100%;
+        max-width: 488px;
+        margin: 0 auto;
+    }
+    &__error{
+        color: #FA0E0E;
+        position: absolute;
+        margin-left: 5%;
+    }
+    &__input{
+        width: 100%;
+        max-width: 488px;
+        height: 60px;
+        font-size: 20px;
+        border: 2px solid $main-color;
+        outline: none;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+        background: transparent;
+        padding: 0 15px;
+        @include xxs{
+            font-size: 16px;
+        }
+    }
+    &__input::placeholder{
+        font-family: $regular, sans-serif;
+    }
+    &__textarea{
+        width: 100%;
+        max-width: 488px;
+        height: 100px;
+        font-size: 20px;
+        border: 2px solid $main-color;
+        outline: none;
+        border-radius: 15px;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        -ms-border-radius: 15px;
+        -o-border-radius: 15px;
+        background: transparent;
+        resize: none;
+        padding: 15px;
+        @include xxs{
+            font-size: 16px;
+        }
+    }
+    &__button{
+        width: 100%;
+        max-width: 300px;
+        height: 60px;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: normal;
+        text-transform: uppercase;
+        cursor: pointer;
+        border: none;
+        border-radius: 60px;
+        color: $light-color;
+        background-color: $main-color;
+        overflow: hidden;
+        position: relative;
+        transition: .3s transform ease-in-out;
+        will-change: transform;
+        z-index: 0;
+        -webkit-border-radius: 60px;
+        -moz-border-radius: 60px;
+        -ms-border-radius: 60px;
+        -o-border-radius: 60px;
+        &::after {
+            background-color: $light-color;
+            border-radius: 3rem;
+            content: '';
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translate(-100%, 0) rotate(10deg);
+            transform-origin: top left;
+            transition: .3s transform ease-out;
+            will-change: transform;
+            z-index: -1;
+        }
+        &:hover::after {
+            transform: translate(0, 0);
+        }
+        &:hover {
+            border: 2px solid transparent;
+            color: $main-color;
+            transform: scale(1.05);
+            will-change: transform;
+        }
+    }
 }
