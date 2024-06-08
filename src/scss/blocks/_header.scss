@@ -1,10 +1,30 @@
 .header{
+    position: relative;
     padding-top: 60px;
-    overflow-x: hidden;
     @include xxs{
         padding-top: 34px;
     }
-    &__glow{
+    &::before{
+        position: absolute;
+        content: "";
+        background: radial-gradient(50% 50% at 50% 50%, rgba(92, 135, 251, 0.46) 0%, rgba(41, 44, 52, 0) 100%);
+        width: 50vw;
+        height: 50vh;
+        max-width: 1500px;
+        max-height: 1500px;
+        top: -100%;
+        left: -30%;
+        z-index: -1;
+        @include sm{
+            max-width: 600px;
+            max-height: 600px;
+        }
+        @include xs{
+            max-width: 300px;
+            max-height: 300px;
+        }
+    }
+    /*&__glow{
         width: 50vw;
         height: 50vh;
         max-width: 1500px;
@@ -12,14 +32,15 @@
         top: -25%;
         left: -25%;
         z-index: -1;
-        @include xs{
-            //width: 600px;
-            //height: 600px;
-            //left: -25%;
-            //right: 0;
-            //top: -20%;
+        @include sm{
+            max-width: 600px;
+            max-height: 600px;
         }
-    }
+        @include xs{
+            max-width: 300px;
+            max-height: 300px;
+        }
+    }*/
     &__wrap{
         position: relative;
         z-index: 10;
@@ -31,6 +52,7 @@
             //flex-direction: column;
             justify-content: center;
         }
+        
     }
     &__logos{
         display: flex;
