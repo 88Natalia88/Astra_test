@@ -163,6 +163,7 @@
     background-color: #0D0E0F;
     padding: 200px 0;
     position: relative;
+    
     @include xs{
         padding: 80px 0;
     }
@@ -178,7 +179,7 @@
         right: -55%;
         top: 0;
         @include xs{
-            max-width: 200px;
+            max-width: 300px;
             max-height: 600px;
             //right: -40%;
             right: 0;
@@ -539,8 +540,8 @@
             max-width: 300px;
             max-height: 1000px;
             z-index: -1;
-            top: -50%;
-            left: 10%;
+            top: -30%;
+            left: 25%;
         }
     }
     /*&__glow{
