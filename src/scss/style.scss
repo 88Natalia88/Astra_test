@@ -160,12 +160,15 @@ a{
 .glow-blue{
     position: absolute;
     background: radial-gradient(50% 50% at 50% 50%, rgba(92, 135, 251, 0.46) 0%, rgba(41, 44, 52, 0) 100%);
+    z-index: -1;
 }
 .glow-lightBlue{
     position: absolute;
     background: radial-gradient(50% 50% at 50% 50%, rgba(0, 54, 248, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
+    z-index: -1;
 }
 .glow-orange{
     position: absolute;
     background: radial-gradient(50% 50% at 50% 50%, rgba(248, 59, 0, 0.3) 0%, rgba(41, 44, 52, 0) 100%);
+    z-index: -1;
 }
