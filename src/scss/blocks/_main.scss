@@ -16,6 +16,7 @@
         position: absolute;
         right: 0;
         top: 0;
+        z-index: -10;
         &_2{
             left: 12%;
             bottom: 0;
@@ -147,6 +148,7 @@
         max-height: 1765px;
         top: 0;
         right: 0;
+        
         @include xs{
             top: -75%;
         }
@@ -207,6 +209,7 @@
         max-height: 3000px;
         top: 0;
         left: 0;
+        z-index: -3;
         @include sm{
             left: 28%;
             top: 20%;
@@ -435,6 +438,7 @@
         max-height: 2500px;
         top: -55%;
         right: 0;
+        z-index: -1;
     }
     &__glow{
         width: 100%;
@@ -494,6 +498,7 @@
             max-height: 1000px;
             top: -25%;
             right: 0;
+            z-index: -1;
         }
     }
     &__glow{
@@ -559,6 +564,7 @@
         max-height: 2500px;
         left: 0;
         top: 0;
+        z-index: -2;
         @include sm{
             top: 150%;
         }
@@ -658,6 +664,7 @@
         background-color: #24272E;
         width: 100%;
         max-width: 480px;
+        height: 870px;
         margin: 2% auto;
         padding: 40px;
         border-radius: 16px;
@@ -689,12 +696,218 @@
         -ms-border-radius: 20px;
         -o-border-radius: 20px;
         background-color: rgba(229, 231, 237, .2);
+        &.active{
+            background-color: #227AFF;
+        }
     }
-    &__form{
-        margin-top: 24px;
-    }
+    
 }
 .form{
+    width: 100%;
+    height: 90%;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+        //align-items: center;
+    &__tab{
+        display: none;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    &__custom-input{
+        position: relative;
+        width: 100%;
+        //max-width: 488px;
+        margin: 0 auto;
+    }
+    &__error{
+        color: #FA0E0E;
+        position: absolute;
+        margin-left: 5%;
+    }
+    &__label{
+        font-size: 16px;
+        line-height: 20px;
+    }
+    &__input{
+        margin-top: 10px;
+        width: 100%;
+        //max-width: 488px;
+        height: 48px;
+        font-size: 16px;
+        border: 1px solid $light-color;
+        outline: none;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        background: transparent;
+        padding: 0 20px;
+        color: $main-color;
+        &:focus{
+            border: 1px solid #227AFF;
+        }
+        &.invalid {
+            border: 1px solid #F93536;
+        }
+    }
+    &__input::placeholder{
+        font-family: $regular, sans-serif;
+        color: $light-color;
+    }
+    &__buttons{
+        display: flex;
+        gap: 16px;
+    }
+    &__btn{
+        width: 100%;
+        height: 50px;
+        background-color: #227AFF;
+        color: $main-color;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+        font-size: 18px;
+        cursor: pointer;
+        &:hover{
+            background-color: #189BFF;
+        }
+    }
+    &__title{
+        margin-top: 36px;
+        font-size: 20px;
+        font-family: $bold, sans-serif;
+    }
+    &__path{
+        margin-top: 10px;
+        display: flex;
+    }
+    &__choose{
+        width: 50%;
+        height: 64px;
+        color: $main-color;
+        border-bottom: 1px solid #9BA2B6;
+        cursor: pointer;
+        &.active{
+            color: #227AFF;
+            border-bottom: 1px solid #227AFF;
+        }
+    }
+    &__subtitle{
+        margin-top: 36px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    &__radios{
+        margin-top: 16px;
+        display: flex;
+        gap: 26px;
+        flex-wrap: wrap;
+    }
+    
+    &__radio-label{
+        font-size: 16px;
+        color: $main-color;
+        flex: 1;
+        display: flex;
+        align-items: center;
+    }
+    &__real-radio {
+        width: 0;
+        height: 0;
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+    
+    &__custom-radio {
+        position: relative;
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $main-color;
+        border: 1px solid #E5E7ED;
+        border-radius: 50%;
+        vertical-align: text-top;
+        margin-right: 12px;
+    }
+    
+    &__custom-radio::before {
+        content: '';
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: $main-color;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        transition: 0.2s ease-in;
+        -webkit-transition: 0.2s ease-in;
+        -moz-transition: 0.2s ease-in;
+        -ms-transition: 0.2s ease-in;
+        -o-transition: 0.2s ease-in;
+    }
+    &__real-radio:checked + .form__custom-radio{
+        border: 1px solid #227AFF;
+        background-color: #227AFF;
+    }
+
+    &__real-radio:checked + .form__custom-radio::before{
+        transform: translate(-50%, -50%) scale(1);
+    }
+    &__transports{
+        display: none;
+    }
+    &__choose-path{
+        margin-top: 24px;
+        display: none;
+        flex-direction: column;
+        gap: 24px;
+    }
+    &__select{
+        position: relative;
+    }
+    &__select-btn{
+        border: none;
+        background: transparent;
+        position: absolute;
+        top: 55%;
+        right: 2%;
+        cursor: pointer;
+    }
+    &__autocomplete {
+        display: none;
+        top: 88px;
+        position: absolute;
+        max-height: 140px;
+        width: 100%;
+        border: 1px solid #227AFF;
+        background-color: #24272E;
+        overflow-y: scroll;
+        border-radius: 8px;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        font-size: 16px;
+        padding: 14px 16px;
+        z-index: 1;
+    }
+    &__list-item {
+        padding: 8px;
+        color: $main-color;
+        &:hover {
+        background-color: #227AFF;
+        }
+    }
+}
+/*.form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -803,4 +1016,5 @@
             will-change: transform;
         }
     }
-}
+
+}*/
