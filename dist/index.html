@@ -390,8 +390,20 @@
                     <span class='modal__popup-span'></span>
                     <span class='modal__popup-span'></span>
                 </div>
-                <form action="#" class="form">
-                    <!---<div class="form__tab">
+                <div class="modal__sucsessfull">
+                    <div class="modal__sucsessfull-content">
+                        <div class="modal__sucsessfull-image">
+                            <img src="icons/secsessfull.svg" alt="secsessfull" class="modal__secsessfull-img">
+                            <p class="modal__sucsessfull-progress">Успешно</p>
+                        </div>
+                        <div class="modal__secsessfull-text">
+                            Спасибо! Вы были успешно зарегистрированы на практический семинар «AtomDay»
+                        </div>
+                    </div>
+                    <button class="modal__sucsessfull-btn">Закрыть окно</button>    
+                </div>
+                <form action="#" class="form" id="regForm">
+                    <div class="form__tab">
                         <div class="form__custom-input">
                             <p class="form__error"></p>
                             <label for="user-name" class="form__label">ФИО</label>
@@ -413,12 +425,12 @@
                             <input type="tel" name="tel" id="tel" required placeholder="+7 999 999 99 99" class="form__input">
                         </div>
                         <div class="form__custom-input">
-                            <p class="form-error"></p>
+                            <p class="form__error"></p>
                             <label for="email" class="form__label">Адрес электронной почты</label>
                             <input type="email" name="email" id="email" required placeholder="ivanov@ivan.ru" class="form__input">
                         </div>
                         
-                    </div>-->
+                    </div>
                     <div class="form__tab">
                         <h3 class="form__title">Способ прибытия в Москву 13 марта</h3>
                         <div class="form__path">
@@ -449,8 +461,9 @@
                                 <button class="form__choose button-transport" type="button">Самолет</button>
                                 <button class="form__choose button-transport" type="button">Поезд</button>
                             </div>
-                            <div class="form__choose-path">
+                            <div class="form__choose-path" >
                                 <div class="form__select">
+                                    <p class="form__error"></p>
                                     <label for="airport" class="form__label">Аэропорт</label>
                                     <input type="text" name="airport" id="airport" placeholder="Не выбрано" class="form__input">
                                     <button class="form__select-btn" type="button"><img src='icons/Drop Down.svg' alt='arrow' class='form__arrow'></button>
@@ -473,8 +486,9 @@
                                     <input type="text" name="time" id="time" required placeholder="00:00" class="form__input">
                                 </div>
                             </div>
-                            <div class="form__choose-path">
+                            <div class="form__choose-path" >
                                 <div class="form__select">
+                                    <p class="form__error"></p>
                                     <label for="railway-station" class="form__label">Вокзал</label>
                                     <input type="text" name="railway-station" id="railway-station" placeholder="Не выбрано" class="form__input">
                                     <button class="form__select-btn" type="button"><img src='icons/Drop Down.svg' alt='arrow' class='form__arrow'></button>
@@ -506,11 +520,110 @@
                             </div>
                         </div>
                     </div>
+                    <div class="form__tab">
+                        <h3 class="form__title">Способ отбытия из Москвы 15 марта</h3>
+                        <div class="form__path">
+                            <button class="form__choose button-departure" type="button">Я еду в Москву</button>
+                            <button class="form__choose button-departure" type="button">Я еду не в Москву</button>
+                        </div>
+                        <div class="form__transports-departure">
+                            <h4 class="form__subtitle">Укажите, требуется ли вам трансфер.</h4>
+                            <div class="form__radios">
+                                <div class="form__group">
+                                    <label class="form__radio-label">
+                                        <input type="radio" name="transports" value="to-station" class="form__real-radio" checked>
+                                        <span class="form__custom-radio"></span>
+                                        До станции метро «Ховрино»
+                                    </label>
+                                </div>
+                                <div class="form__group">
+                                    <label class="form__radio-label">
+                                        <input type="radio" name="transports" value="to-car" class="form__real-radio">
+                                        <span class="form__custom-radio"></span>
+                                        Я доберусь на собственном автомобиле
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__transports-departure">
+                            <div class="form__path">
+                                <button class="form__choose button-transports" type="button">Самолет</button>
+                                <button class="form__choose button-transports" type="button">Поезд</button>
+                            </div>
+                            <div class="form__choose-departure">
+                                <div class="form__select">
+                                    <p class="form__error"></p>
+                                    <label for="airport-departure" class="form__label">Аэропорт</label>
+                                    <input type="text" name="airport-departure" id="airport-departure" placeholder="Не выбрано" class="form__input">
+                                    <button class="form__select-btn" type="button"><img src='icons/Drop Down.svg' alt='arrow' class='form__arrow'></button>
+                                    <div class="form__autocomplete">
+                                        <ul class="form__list">
+                                            <li class="form__list-item">Шереметьево (SVO)</li>
+                                            <li class="form__list-item">Внуково (VKO)</li>
+                                            <li class="form__list-item">Домодедово (DME)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form__custom-input">
+                                    <p class="form__error"></p>
+                                    <label for="number-departure" class="form__label">Номер рейса</label>
+                                    <input type="text" name="number-departure" id="number-departure" required placeholder="NN 0000" class="form__input">
+                                </div>
+                                <div class="form__custom-input">
+                                    <p class="form__error"></p>
+                                    <label for="time-departure" class="form__label">Время прибытия</label>
+                                    <input type="text" name="time-departure" id="time-departure" required placeholder="00:00" class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__choose-departure">
+                                <div class="form__select">
+                                    <p class="form__error"></p>
+                                    <label for="departure-station" class="form__label">Вокзал</label>
+                                    <input type="text" name="departure-station" id="departure-station" placeholder="Не выбрано" class="form__input">
+                                    <button class="form__select-btn" type="button"><img src='icons/Drop Down.svg' alt='arrow' class='form__arrow'></button>
+                                    <div class="form__autocomplete">
+                                        <ul class="form__list">
+                                            <li class="form__list-item">Белорусский вокзал</li>
+                                            <li class="form__list-item">Восточный вокзал</li>
+                                            <li class="form__list-item">Казанский вокзал</li>
+                                            <li class="form__list-item">Киевский вокзал</li>
+                                            <li class="form__list-item">Курский вокзал</li>
+                                            <li class="form__list-item">Ленинградский вокзал</li>
+                                            <li class="form__list-item">Павелецкий вокзал</li>
+                                            <li class="form__list-item">Рижский вокзал</li>
+                                            <li class="form__list-item">Савёловский вокзал</li>
+                                            <li class="form__list-item">Ярославский вокзал</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="form__custom-input">
+                                    <p class="form__error"></p>
+                                    <label for="departure-train" class="form__label">Номер поезда</label>
+                                    <input type="text" name="departure-train" id="departure-train" required placeholder="000" class="form__input">
+                                </div>
+                                <div class="form__custom-input">
+                                    <p class="form__error"></p>
+                                    <label for="times-train" class="form__label">Время прибытия</label>
+                                    <input type="text" name="times-train" id="times-train" required placeholder="00:00" class="form__input">
+                                </div>
+                            </div>
+                            <div class="form__checkbox">
+                                <p class="form__error"></p>
+                                <label class="form__radio-label">
+                                    <input type="checkbox" name="comparison" class="form__real-checkbox" checked required>
+                                    <span class="form__custom-checkbox"></span>
+                                    Даю согласие на обработку персональных данных
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                         <div class="form__buttons">
-                            <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="form__btn">Назад</button>
+                            <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="form__btn form__btn_prev">Назад</button>
                             <button type="button" id="nextBtn" class="form__btn" onclick="nextPrev(1)">Далее</button>
                         </div>
                 </form>
+                
+                
             </div>
             
         </div>

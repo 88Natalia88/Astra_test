@@ -1,8 +1,34 @@
 window.addEventListener('DOMContentLoaded', () => {
-    chooseButtons[0].classList.add('active');
-    buttonTrans[0].classList.add('active');
-    transports[0].style.display = 'block'; 
-    choosePath[0].style.display = 'flex';
+    if (chooseButtons[0]) {
+        chooseButtons[0].classList.add('active');
+    }
+
+    if (buttonTrans[0]) {
+        buttonTrans[0].classList.add('active');
+    }
+    
+    if (transports[0]) {
+        transports[0].style.display = 'block';
+    }
+    
+    if (choosePath[0]) {
+        choosePath[0].style.display = 'flex';
+    }
+    if (choosePathDeparture[0]) {
+        choosePathDeparture[0].style.display = 'flex';
+    }
+
+    if (departureButtons[0]) {
+        departureButtons[0].classList.add('active');
+    }
+    
+    if (buttonChooseTransports[0]) {
+        buttonChooseTransports[0].classList.add('active');
+    }
+    
+    if (transportsDeparture[0]) {
+        transportsDeparture[0].style.display = 'block';
+    }
 });
 
 const buttonsModal = document.querySelectorAll('.button-modal');
@@ -13,6 +39,10 @@ const chooseButtons = document.querySelectorAll('.button-choose');
 const buttonTrans = document.querySelectorAll('.button-transport');
 const transports = document.querySelectorAll('.form__transports');
 const choosePath = document.querySelectorAll('.form__choose-path');
+const choosePathDeparture = document.querySelectorAll('.form__choose-departure');
+const transportsDeparture = document.querySelectorAll('.form__transports-departure');
+const sucsessfullBtn = document.querySelector('.modal__sucsessfull-btn');
+
 //открыть модальное окно
 buttonsModal.forEach(button =>{
     button.addEventListener('click', ()=>{
@@ -20,6 +50,20 @@ buttonsModal.forEach(button =>{
         body.classList.add('locked');
     })
 });
+
+//закрыть модальное окно
+
+document.body.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        modal.style.display = 'none';
+        body.classList.remove('locked');
+    }
+});
+
+sucsessfullBtn.addEventListener('click', ()=>{
+    modal.style.display = 'none';
+    body.classList.remove('locked');
+})
 
 //способ прибытия в Москву 13 марта
 chooseButtons.forEach((button, index) => {
@@ -42,6 +86,37 @@ buttonTrans.forEach((button, index) => {
         choosePath.forEach(transport => transport.style.display = 'none');
         choosePath[index].style.display = 'flex';
     });
+});
+
+//способ отбытия из Москвы 15 марта
+
+const departureButtons = document.querySelectorAll('.button-departure');
+const buttonChooseTransports = document.querySelectorAll('.button-transports');
+
+departureButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        departureButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        transportsDeparture.forEach(transport => transport.style.display = 'none');
+        transportsDeparture[index].style.display = 'block';
+    });
+});
+
+//выбор самолета или поезда для отбытия
+
+buttonChooseTransports.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        buttonChooseTransports.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        choosePathDeparture.forEach(transport => transport.style.display = 'none');
+        choosePathDeparture[index].style.display = 'flex';
+
+        
+    });
+
+    
 });
 
 
@@ -80,74 +155,192 @@ items.forEach((item) => {
 });
 
 
-const currentTab = 0; // Устанавливаем первую (0) вкладку как текущую
-showTab(currentTab); // Отображаем текущую вкладку
+let currentTab = 0;
+showTab(currentTab); 
 
 function showTab(n) {
-  // Эта функция отображает заданную вкладку формы ...
-  let x = document.getElementsByClassName("form__tab");
-  x[n].style.display = "flex";
-  // ... и фиксирует кнопки Назад/Дальше:
-  if (n == 0) {
-    document.getElementById("prevBtn").style.display = "none";
-  } else {
-    document.getElementById("prevBtn").style.display = "inline";
-  }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Завершить регистрацию";
-  } else {
-    document.getElementById("nextBtn").innerHTML = "Далее";
-  }
-  // ... и запускает функцию, отображающую корректный индикатор этапа:
-  fixStepIndicator(n)
+    let x = document.getElementsByClassName("form__tab");
+    x[n].style.display = "flex";
+    if (n == 0) {
+        document.getElementById("prevBtn").style.display = "none";
+    } else {
+        document.getElementById("prevBtn").style.display = "inline";
+    }
+    if (n == (x.length - 1)) {
+        document.getElementById("nextBtn").innerHTML = "Завершить регистрацию";
+    } else {
+        document.getElementById("nextBtn").innerHTML = "Далее";
+    }
 }
 
+function nextPrev(n) {
 
-function fixStepIndicator(n) {
-    // Эта функция удаляет класс "active" у всех этапов...
-    let i, x = document.getElementsByClassName("modal__popup-span");
-    for (i = 0; i < x.length; i++) {
-      x[i].className = x[i].className.replace(" active", "");
-    }
-    //... и добавляет класс "active" текущему этапу:
-    x[n].className += " active";
-  }
-  function nextPrev(n) {
-    // Это функция определяет какую вкладку отображать
     let x = document.getElementsByClassName("form__tab");
-    // Выйти из функции, если какое-нибудь поле текущей вкладки заполнено неверно:
     if (n == 1 && !validateForm()) return false;
-    // Скрыть текущую вкладку:
     x[currentTab].style.display = "none";
-    // Увеличить или уменьшить номер текущей вкладки на 1:
     currentTab = currentTab + n;
-    // если вы достигли конца формы... :
+    
     if (currentTab >= x.length) {
-      //...то данные формы отправляются на сервер:
-      document.getElementById("regForm").submit();
-      return false;
+        //document.getElementById("regForm").submit();
+
+        document.querySelector('.modal__sucsessfull').style.display = 'flex';
+        document.querySelector('.form__buttons').style.display = 'none';
+        document.querySelector(".modal__popup-progress").style.display = 'none';
+        document.querySelector('.modal__popup-title').style.display = 'none';
     }
-    // Иначе, отображаем нужную вкладку:
+
     showTab(currentTab);
-  }
-  function validateForm() {
-    // Это функция проверяет заполнение полей формы
+
+}
+
+const errors = document.querySelectorAll('.form__error');
+
+function inputHandler(event) {
+    let target = event.target;
+
+    if (target.tagName === 'INPUT' && target.parentNode.parentNode.classList.contains('form__tab')) {
+        let index = Array.from(target.parentNode.parentNode.querySelectorAll('input')).indexOf(target);
+
+        if (target.value.trim() !== "") {
+            target.classList.remove("invalid");
+            errors[index].textContent = '';
+            errors[index].style.display = 'none';
+        } else {
+            target.classList.add("invalid");
+            errors[index].textContent = 'Это обязательное поле';
+            errors[index].style.display = 'block';
+        }
+    }
+}
+
+document.querySelectorAll('.form__tab input').forEach(input => {
+    input.addEventListener('input', inputHandler);
+});
+
+function validateForm() {
     let x, y, i, valid = true;
     x = document.getElementsByClassName("form__tab");
-    y = x[currentTab].getElementsByTagName("input");
-    // Цикл, который проверяет каждое поле ввода текущей вкладки:
-    for (i = 0; i < y.length; i++) {
-      // Если поле пустое...
-      if (y[i].value == "") {
-        // добавляем ему класс "invalid":
-        y[i].className += " invalid";
-        // и устанавливаем текущий статус валидности в false:
-        valid = false;
-      }
+
+    if (currentTab === 0) {
+        y = x[currentTab].getElementsByTagName("input");
+        for (i = 0; i < y.length; i++) {
+            if (y[i].value == "") {
+                y[i].classList.add("invalid");
+                valid = false;
+                errors[i].textContent = 'Это обязательное поле';
+                errors[i].style.display = 'block';
+            } else {
+                y[i].classList.remove("invalid");
+                y[i].style.border = '1px solid #227AFF';
+                errors[i].textContent = '';
+                errors[i].style.display = 'none';
+            }
+            //y[i].addEventListener('input', inputHandler);
+        }
+    } else if (currentTab === 1) {
+        if (chooseButtons[0].classList.contains('active')) {
+            valid = true; 
+        } else if (chooseButtons[1].classList.contains('active')) {
+            let selectedTransportIndex = -1;
+    
+            buttonTrans.forEach((btn, i) => {
+                if (btn.classList.contains('active')) {
+                    selectedTransportIndex = i;
+                }
+            });
+    
+            if (selectedTransportIndex !== -1) {
+                choosePath.forEach((path, index) => {
+                    if (index === selectedTransportIndex) {
+                        let inputs = path.querySelectorAll('input');
+                        let errors = path.querySelectorAll('.form__error');
+                        inputs.forEach((currentInput, i) => { 
+                            if (currentInput.value === "") {
+                                currentInput.classList.add("invalid");
+                                valid = false;
+                                errors[i].textContent = 'Это обязательное поле';
+                                errors[i].style.display = 'block';
+                            } else {
+                                currentInput.classList.remove("invalid");
+                                currentInput.style.border = '1px solid #227AFF';
+                                errors[i].textContent = '';
+                                errors[i].style.display = 'none';
+                            }
+                            currentInput.addEventListener('input', inputHandler);
+                        });
+                    }
+                });
+            }
+        }
+    } else if (currentTab === 2) {
+        if (transportsDeparture[0].classList.contains('active')) {
+            valid = true; 
+        } else if (transportsDeparture[1].classList.contains('active')) {
+            let selectedTransportIndex = -1;
+    
+            buttonChooseTransports.forEach((btn, i) => {
+                if (btn.classList.contains('active')) {
+                    selectedTransportIndex = i;
+                }
+            });
+    
+            if (selectedTransportIndex !== -1) {
+                choosePathDeparture.forEach((path, index) => {
+                    if (index === selectedTransportIndex) {
+                        let inputs = path.querySelectorAll('input');
+                        let errorsText = path.querySelectorAll('.form__error');
+                        let checkbox = document.querySelector('.form__real-checkbox');
+                        let customCheckbox = document.querySelector('.form__custom-checkbox');
+                        
+                        if (!checkbox.checked) {
+                            //customCheckbox.classList.add('invalid');
+                            customCheckbox.style.border = '2px solid #F93536';
+                            errors.textContent = 'Необходимо дать ваше согласие';
+                            valid = false;
+                        } else {
+                            //customCheckbox.classList.remove('invalid');
+                            customCheckbox.style.border = '2px solid #227AFF';
+                            errors.textContent = '';
+                            valid = true
+                        }
+    
+                        checkbox.addEventListener('change', function() {
+                            if (checkbox.checked) {
+                                //customCheckbox.classList.remove('invalid');
+                                customCheckbox.style.border = '2px solid #227AFF';
+                                errors.textContent = '';
+                            } else {
+                                //customCheckbox.classList.add('invalid');
+                                customCheckbox.style.border = '2px solid #F93536';
+                                errors.textContent = 'Необходимо отметить согласие';
+                            }
+                        });
+
+
+                        inputs.forEach((currentInput, i) => {
+                            if (currentInput.value === "") {
+                                currentInput.classList.add("invalid");
+                                valid = false;
+                                errorsText[i].textContent = 'Это обязательное поле';
+                                errorsText[i].style.display = 'block';
+                            } else {
+                                currentInput.classList.remove("invalid");
+                                currentInput.style.border = '1px solid #227AFF';
+                                errorsText[i].textContent = '';
+                                errorsText[i].style.display = 'none';
+                            }
+                            currentInput.addEventListener('input', inputHandler);
+                            //currentInput.addEventListener('input', inputHandler);
+                        });
+                    }
+                });
+            }
+        }
     }
-    // Если статус валидности true, помечаем этот шаг как завершенный и валидный:
+
     if (valid) {
-      document.getElementsByClassName("modal__popup-span")[currentTab].className += " active";
+        document.getElementsByClassName("modal__popup-span")[currentTab].className += " active";
     }
-    return valid; // возвращаем статус валидности
-  }
+
+    return valid;
+}
